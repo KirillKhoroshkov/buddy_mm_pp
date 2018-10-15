@@ -28,99 +28,71 @@ class Command: public Info {};
 
 class Exit_command: public Command {
 public:
-    Exit_command(): Command() {};
+    Exit_command();
 };
 
 class  Print_command: public Command {
 public:
-    Print_command(): Command() {};
+    Print_command();
 };
 
 class Init_command: public Command {
 public:
     size_t degree;
-    Init_command(size_t degree): Command() {
-        this->degree = degree;
-    };
+    Init_command(size_t degree);
 };
 
 class  Allocate_command: public Command {
 public:
     size_t size;
-
-    explicit Allocate_command(size_t size): Command() {
-        this->size = size;
-    };
+    Allocate_command(size_t size);
 };
 
 class  Reallocate_command: public Command {
 public:
     void *address;
     size_t new_size;
-    Reallocate_command(void *address, size_t new_size): Command() {
-        this->address = address;
-        this->new_size = new_size;
-    };
+    Reallocate_command(void *address, size_t new_size);
 };
 
 class Save_command: public Command {
 public:
     string file_path;
     bool rewrite_it;
-    Save_command(string file_path, bool rewrite_it): Command() {
-        this->file_path = std::move(file_path);
-        this->rewrite_it = rewrite_it;
-    };
-    ~Save_command() override {
-        file_path.clear();
-    }
+    Save_command(string file_path, bool rewrite_it);
+    ~Save_command();
 };
 
 class  Open_command: public Command {
 public:
     string file_path;
-
-    explicit Open_command(string file_path): Command() {
-        this->file_path = std::move(file_path);
-    };
-    ~Open_command() override {
-        file_path.clear();
-    }
+    Open_command(string file_path);
+    ~Open_command();
 };
 
 class Help_command: public Command {
 public:
-    Help_command(): Command() {};
+    Help_command();
 };
 
 class Read_command: public Command {
 public:
     string file_path;
-
-    explicit Read_command(string file_path): Command() {
-        this->file_path = std::move(file_path);
-    };
-    ~Read_command() override {
-        file_path.clear();
-    }
+    Read_command(string file_path);
+    ~Read_command();
 };
 
 class Free_command: public Command {
 public:
     void *address;
-    Free_command(void *address): Command() {
-        this->address = address;
-    };
+    Free_command(void *address);
 };
 
 class Get_command: public Command {
 public:
     void *address;
     size_t index;
-    Get_command(void *address, size_t index): Command() {
-        this->address = address;
-        this->index = index;
-    };
+    Get_command(void *address, size_t index);
 };
 
 class Set_command: public Command {
@@ -128,10 +100,6 @@ public:
     void *address;
     size_t index;
     char new_value;
-    Set_command(void *address, size_t index, char new_value): Command() {
-        this->address = address;
-        this->index = index;
-        this->new_value = new_value;
-    };
+    Set_command(void *address, size_t index, char new_value);
 };
 #endif //BUDDY_MM_COMMANDS_H

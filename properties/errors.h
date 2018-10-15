@@ -1,3 +1,5 @@
+#include <utility>
+
 #ifndef BUDDY_MM_ERRORS_H
 #define BUDDY_MM_ERRORS_H
 
@@ -25,68 +27,63 @@ class Error: public Info {
 public:
     int code;
     string message;
-    Error(int code, string message): Info() {
-        this->code = code;
-        this->message = message;
-    };
-    virtual ~Error() {
-        message.clear();
-    }
+    Error(int code, string message);
+    ~Error();
 };
 
 class Unknown_command_error: public Error {
 public:
-    Unknown_command_error(): Error(unknown_command_error, unknown_command_error_message) {};
+    Unknown_command_error();
 };
 
 class Invalid_args_error: public Error {
 public:
-    Invalid_args_error(): Error(invalid_args_error, invalid_args_error_message) {};
+    Invalid_args_error();
 };
 
 class Not_configured_error: public Error {
 public:
-    Not_configured_error(): Error(not_configured_error, not_configured_error_message) {};
+    Not_configured_error();
 };
 
 class Not_enough_space_error: public Error {
 public:
-    Not_enough_space_error(): Error(not_enough_space_error, not_enough_space_error_message) {};
+    Not_enough_space_error();
 };
 
 class Invalid_configuration_error: public Error {
 public:
-    Invalid_configuration_error(): Error(invalid_configuration_error, invalid_configuration_error_message) {};
+    Invalid_configuration_error();
 };
 
 class Out_of_memory_error: public Error {
 public:
-    Out_of_memory_error(): Error(out_of_memory_error, out_of_memory_error_message) {};
+    Out_of_memory_error();
 };
 
 class Out_of_allocated_memory_error: public Error {
 public:
-    Out_of_allocated_memory_error(): Error(out_of_allocated_memory_error, out_of_allocated_memory_error_message) {};
+    Out_of_allocated_memory_error();
 };
 
 class Invalid_file_path_error: public Error {
 public:
-    Invalid_file_path_error(): Error(invalid_file_path_error, invalid_file_path_error_message) {};
+    Invalid_file_path_error();
 };
 
 class Invalid_file_error: public Error {
 public:
-    Invalid_file_error(): Error(invalid_file_error, invalid_file_error_message) {};
+    Invalid_file_error();
 };
 
 class File_already_consist_error: public Error {
 public:
-    File_already_consist_error(): Error(file_already_consist_error, file_already_consist_error_message) {};
+    File_already_consist_error();
 };
 
 class Reading_while_reading_error: public Error {
 public:
-    Reading_while_reading_error(): Error(reading_while_reading_error, reading_while_reading_error_message) {};
+    Reading_while_reading_error();
 };
 
 #endif //BUDDY_MM_ERRORS_H

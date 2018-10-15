@@ -3,8 +3,8 @@
 
 class Info {
 public:
-    Info() = default;
-    virtual ~Info() = default;;
+    Info();
+    virtual ~Info();
 };
 
 #define default_space_size 256
