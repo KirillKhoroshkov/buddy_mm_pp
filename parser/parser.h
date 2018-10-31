@@ -13,6 +13,6 @@
 
 using namespace std;
 
-Info *parse(string raw_text);
+Info *parse(string &raw_text);
 
 #endif //BUDDY_MM_PARSER_H

@@ -1,6 +1,6 @@
 #include "parser.h"
 
-Info *parse(string raw_text) {
+Info *parse(string &raw_text) {
     Info *response;
     istringstream string_stream(raw_text);
     string entered_command;
